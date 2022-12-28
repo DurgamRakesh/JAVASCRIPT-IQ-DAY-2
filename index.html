@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-IQ-DAY-2</title>
+    <link rel="stylesheet" href="./stykes.css">
+</head>
+<body>
+    <h1>JAVASCRIPT INTERVIEW QUESTIONS PREPARATION DAY-2</h1>
+
+    <p>8.What is creation phase and execution phase?</p>
+    <pre>
+
+        Compiler generates a global execution context before executing the code.
+        inside this we have two phases creation phase and execution phase.
+
+        Creation phase: 
+        During creation phase global execution context ,allowcates  memory space for functions and variables .
+        functions will be stored as with whole function body and variables are declared and assigned default value of undefined.
+        -It is also known as memory allowcation phase.
+
+        Execution phase:
+        During the execution phase javascript executes our code line by line and assign the values to the variables.
+        -Then function are executed.
+        -It  is also known as code execution phase.
+
+    </pre>
+
+    <p>9.What are objects in javascript?</p>
+    <pre>
+
+        IN JS, javascript object is a non-primitive datatype that allow us to store multiple collection of data in key-value pairs.
+        This key-value pair is called property.
+        -key property can be string , and value of property can be any(number , string , boolean , ...).
+
+        we can create objects in 4 ways :
+        1.object literals.
+        2.constructor function.
+        3.Object.create().
+        4.using ES6 Classes.
+    </pre>
+
+    <p>10.What are function constructors?</p>
+    <pre>
+
+        IN JS, A constructor is a special function that creates  and initilazes instance of a object.
+        A constructor get called when an object is created using new keyword.
+        -We have multiple constructors , function constructor for functions , object constructors for object , array constructors for arrays.
+        -When constructor get invoked in js , this operations are perform:
+                -new empty object gets invoked.
+                -this keyword refers to the new object and it becomes the current instance object.
+                -new object returned as the return value of constructor.
+
+        EX:
+        function user1(name,id){
+            this.name = name;
+            this.id = id;
+        }
+        let user = new user1('abc', 10001)
+    </pre>
+
+    <p>11.What are callbacks in js?</p>
+    <pre>
+
+        In JS, A callback function is a function passed into another function as an argument.
+        This function invokes inside the outer function to complete an action.
+
+        EX:
+        function myfun1(name){
+            console.log('hello',name)
+        }
+        function myfun2(callback){
+            let lang = 'javascript';
+            callback(lang)
+        }
+        myfun2(myfun1);
+    </pre>
+
+    <p>12.Explain prototypes?</p>
+    <pre>
+
+        In JS, prototypes are the mechanism by javascript object inherit features from one another.
+        Every object in javascript has a bulit-in prototype , which is called its prototype.
+        -The prototype is itself an object , so the prototype will have its own prototype , making what's called prototype chain.
+        -The chain ends , when we reach a prototype that has null for its own prototype.
+        -It is used for allow us to add new properties to object constructor.
+
+        EX:
+        function person(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        person.prototype.state = 'ts';
+        let p = new person('abc', 23);
+        console.log(p.state);
+    </pre>
+
+    <p>13.What is prototype chain?</p>
+    <pre>
+
+        In JS, prototypes are the mechanism by javascript object inherit features from one another.
+        Every object in javascript has a bulit-in prototype , which is called its prototype.
+        -The prototype is itself an object , so the prototype will have its own prototype , making what's called prototype chain.
+        -The chain ends , when we reach a prototype that has null for its own prototype.
+    </pre>
+
+    <p>14.Give an example of inheritance using function constructor?</p>
+    <pre>
+
+        Ex:
+        function emp1(name,age,id){
+            this.name = name;
+            this.age = age;
+            this.id = id;
+        };
+        
+        function emp2(name,age,id,state){
+            emp1.call(this,name,age,id);
+            this.state = state
+        }
+        
+        let e1 = new emp1('abc',23,10001);
+        console.log(e1);
+        let e2 = new emp2('abc',23,10001,'ts');
+        console.log(e2);
+    </pre>
+    <script src="./main.js"></script>
+</body>
+</html>
